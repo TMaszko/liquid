@@ -10,7 +10,7 @@ public class ConcentrationCalc {
     }
 
     public double calculate(double weight1, double concentration1, double weight2, double concentration2) {
-        return ((weight1 * concentration1) + (weight2 * concentration2)) / weight1 + weight2;
+        return ((weight1 * concentration1) + (weight2 * concentration2)) / (weight1 + weight2)*100;
     }
 
     public double calculate(int drops1, double concentration1, int drops2, double concentration2) {
