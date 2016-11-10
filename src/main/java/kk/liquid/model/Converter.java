@@ -25,11 +25,18 @@ public  class Converter {
         initializeUnitMap();
     }
     public double convertNumber(double numToConvert,String unitFrom,String unitTo){
-        if(!isErrorPositiveNum(numToConvert) && !isErrorGettingUnitFromMap(unitFrom)
-                && !isErrorGettingUnitFromMap(unitTo)){
-            return unitMap.get(unitFrom)/unitMap.get(unitTo) * numToConvert;
+        if (unitFrom != "") {
+            if (!isErrorPositiveNum(numToConvert) && !isErrorGettingUnitFromMap(unitFrom)
+                    && !isErrorGettingUnitFromMap(unitTo)) {
+                return unitMap.get(unitFrom) / unitMap.get(unitTo) * numToConvert;
+            } else {
+                return numToConvert/unitMap.get(unitTo);
+            }
         }
         return ERROR;
+    }
+    public double convertNumberToPercent(double numToConvert){
+       return  convertNumber(numToConvert,"","%");
     }
     public void initializeUnitMap() {
         unitMap.put("mg", currentScaleUNIT *MILI);
